@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jt.js"></script>
+	</head>
+	<body>
+		<div id="a"></div>
+		<div id="b"></div>
+		
+		<script id="a1" type="text/template">
+			<% for(var i=0,ii=data.length;i<ii;i++){ %>
+			  <div>${data[i].name}</div>
+				
+			<%}%>
+		</script>
+		
+		<script id="b1" type="text/template">
+			<% for(var i=0,ii=data.length;i<ii;i++){ %>
+			  <div>${filter(data[i].name)}</div>
+				
+			<%}%>
+		</script>
+		
+		<script type="text/javascript">
+			
+			var list=[{
+				name:"hello"
+			},{
+				name:"world"
+			}];			
+			
+			 document.getElementById("a").innerHTML=jt.render("a1",list);
+			
+			// filter
+			function filter(name){
+				return ">>>"+name;
+			}
+			document.getElementById("b").innerHTML=jt.render("b1",list,filter);
+		</script>
+	</body>
+</html>
