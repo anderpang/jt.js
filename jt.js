@@ -1,7 +1,6 @@
 "use strict";
 
 (function(ctx, factory) {
-	console.log(typeof module)
 	if (typeof module === "object" && typeof
 		module.export === "object") {
 		module.export.default = factory();
